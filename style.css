@@ -3,39 +3,109 @@ body{
     height: 1;
     font-family: Ubuntu;
     color: black;
-    background: rgb(2,0,36);
+    /*background: rgb(2,0,36);*/
     margin: auto;
-    background: linear-gradient(90deg, rgb(32, 30, 69) 0%, rgb(151, 152, 186) 35%, rgb(255, 255, 255) 100%);
+    /*background: linear-gradient(90deg, rgb(32, 30, 69) 0%, rgb(151, 152, 186) 35%, rgb(255, 255, 255) 100%);*/
+
   }
   .container{
-    width: 50%;
+    position: relative;
+    width: 100%;
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    background-image: linear-gradient(rgb(34, 34, 105), rgb(212, 207, 199));
   }
-  .tasklist{
-    height: 500px;
-    overflow: scroll;
-    width: 700px;
-    list-style: decimal;
+
+
+  .logger{
+    height: auto;
+    width: 30%;
+    margin-left: 10px;
+    border: 1px solid #31a198;
+    border-radius:10px;
+  }
+  .logger:hover{
+    box-shadow: 0 0 11px rgba(11, 10, 10, 0.2);
+  }
+  .logger li:hover{
+    box-shadow: 0 0 11px rgba(11, 10, 10, 0.2);
+  }
+  .tasklist li{
+    width: 100%;
+    border: 1px solid #31a198;
+    border-radius:10px;
+  }
+  .tasklist li:hover{
+    box-shadow: 0 0 11px rgba(11, 10, 10, 0.2);
+  }
+  .tasklist img:hover{
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+  }
+  li:hover{
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
   }
   .input_container{
+    width: 40%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    transition: box-shadow 0.3s;
+    border: 1px solid #a199ae;
+    border-radius:10px;
+  }
+  .search_bar{
+    width: 30%;
+    transition: box-shadow 0.3s;
+    border: 1px solid #31a198;
+    border-radius:10px;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+
+  .search_bar:hover{
+    box-shadow: 0 0 11px rgba(11, 10, 10, 0.2);
+  }
+  .alert_container{
+    width: 25%;
+    transition: box-shadow 0.3s;
+    border: 1px solid #31a198;
+    border-radius:10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .alert_container:hover{
+    box-shadow: 0 0 11px rgba(11, 10, 10, 0.2);
+  }
+  .input_container:hover{
+      box-shadow: 0 0 11px rgba(11, 10, 10, 0.2);
+  }
+  label{
+    margin: 5px 0px 5px 0px;
   }
   .list_container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(212, 207, 199);
+  }
+  .pending_total{
+    width: 100%;
+    background-color: rgb(212, 207, 199);
+    display: flex;
+    justify-content: space-around;
   }
   li{
     margin: 10px 0px 10px 0px;
-    border-bottom: 1px solid;
+    /*border-bottom: 1px solid;*/
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .edit_image{
@@ -56,3 +126,252 @@ body{
   .edit_button{
     margin-left: 10px;
   }
+
+  .task_container{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    width: 55%;
+    margin-bottom: 15px;
+  }
+
+  .task_options{
+    width: 100%;
+    /*
+    justify-content: space-between;*/
+  }
+  .task_options div{
+    margin: 5px;
+  }
+
+
+
+
+  .tags-input {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tags-input input {
+    flex: 1;
+    border: none;
+    height: 32px;
+    border: 2px solid crimson;
+    border-radius: 10px;
+}
+
+.tags-input input:focus {
+    border: none;
+}
+
+.tags-input ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.tags-input ul li {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+
+
+.subtasks-input {
+  /*display: flex;
+  flex-wrap: wrap;*/
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtasks-input input {
+  flex: 1;
+  border: none;
+  /*height: 32px;*/
+  border: 2px solid crimson;
+  border-radius: 10px;
+}
+
+.subtasks-input input:focus {
+  border: none;
+}
+
+.subtasks-input ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.subtasks-input ul li {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 8px;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.subtasklist, .taglist{
+  display: flex;
+}
+.subtasklist li{
+  border: solid;
+  padding: 3px;
+  border-radius: 7px;
+  display: block;
+  margin-left: 10px;
+}
+
+.taglist li{
+  border: solid;
+  padding: 3px;
+  border-radius: 7px;
+  display: block;
+  margin-left: 10px;
+}
+
+.subtasks, .tags{
+  display: flex;
+  align-items: center;
+}
+
+.list_item{
+  padding: 10px;
+}
+
+.task_options{
+  margin-top: 10px 0px 10px 0px;
+}
+
+
+
+.input_alerts{
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.due_list, .expired_list{
+  list-style: none;
+}
+
+.due_list_container, .expired_list_container{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+@media screen and (max-width: 850px) {
+  .input_alerts{
+    flex-direction: column;
+    align-items: center;
+  }
+  .input_container{
+    width: 70%;
+    order: 1;
+    margin: 20px;
+    padding: 5px;
+
+  }
+  .alert_container{
+    width: 70%;
+  }
+  .due_list_container{
+    order: 0;
+  }
+  .expired_list_container{
+    order: 2;
+  }
+  .pending_total{
+    flex-direction: column;
+  }
+  .tasklist{
+    height: auto;
+    list-style: decimal;
+    width: 70%;
+    order: 2;
+  }
+  .logger{
+    order: 1;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .priority_catagoty_date_inputs{
+    flex-direction: column;
+  }
+  .priority_catagoty_date_inputs div{
+    margin: 10px;
+  }
+}
+
+
+.task_container_adjacent{
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.list_item{
+  display: flex;
+}
+
+
+.subtasklist li{
+  border: 1px solid;
+}
+
+.taglist li {
+  border: 1px solid;
+}
+
+.add_subtask_image, .add_tag_image{
+  border: 1px solid;
+  padding: 3px;
+  margin-left: 15px;
+}
+
+
+/*li{
+  border-bottom: solid 1px;
+  padding: 2px;
+}*/
+
+
+.priority_catagoty_date_inputs{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.taglist{
+  width: 60%;
+}
+
+
+
+
+
+
