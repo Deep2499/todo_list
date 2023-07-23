@@ -9,19 +9,126 @@
 </head>
 <body>
   <div class="container">
-    <h1>Todo list</h1>
-    <div class="input_container">
-      <textarea class="inputfield" rows="4" cols="50"></textarea>
-      <button class="addbutton" onclick="add_todo()" style="height: 20px; margin-left: 30px;"><b>Add</b></button>
-    </div>
+      <h1>Todo list</h1>
+      <div>
+        <b>Sort by</b>
+      </div>
+      <div style="margin: 10px;">
+        <select id = "myList1" onchange = "select_sort()" >
+          <option value="none"> ---Choose sort--- </option>
+          <option value="htl"> Priority : High to Low </option>
+          <option value="lth"> Priority : Low to High </option>
+          <option value="ntf"> Deadline : Nearest to Farthest </option>
+          <option value="ftn"> Deadline : Farthest to Nearest </option>
+        </select>
+      </div>
+      <div style="display: flex; margin: 10px; ">
+        <div style="margin-right: 15px;">
+          <b> Filters </b>
+        </div>
+        <div>
+          <select id = "myList" onchange = "select_filter()" style="margin-right: 10px;">
+            <option value="none"> ---Choose filter--- </option>
+            <option value="high"> Priority : High </option>
+            <option value="medium"> Priority : Medium </option>
+            <option value="low"> Priority : Low </option>
+            <option value="work"> Catagory : Work </option>
+            <option value="personal"> Catagory : Personal </option>
+            <option value="study"> Catagory : Study </option>
+            <option value="errands"> Catagory : Errands </option>
+          </select>
+          <input type="date" id="due_filter_input" style="margin-right: 10px;">
+          <button class="due_filter_button"><b>Date Filter</b></button>
+        </div>
+      </div>
+
+
+      <div class="input_alerts">
+        <div class="input_container">
+          <textarea class="inputfield" rows="1" cols="30" placeholder="task" style="width: 95%;"></textarea>
+          <!--<input type="text" placeholder="prority" id="priority">-->
+        <div class="priority_catagoty_date_inputs">
+          <div>
+            <label>Prority :</label>
+            <select id="priority">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Catagory :</label>
+            <select id="catagory">
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Study">Study</option>
+              <option value="Errands">Errands</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Date :</label>
+            <input type="date" id="due" >
+          </div>
+        </div>
+
+        <div style="width: 100%; display: flex; justify-content: space-around;">
+          <!--<label>Tags :</label>-->
+          <div class="tags-input" style="display: flex; justify-content: center; width:50%;">
+            <input type="text" id="input-tag"
+                placeholder="Add a tag" style="width:90%;"/>
+                <ul id="tags"></ul>
+          </div>
+
+          <!--<label>Subtasks :</label>-->
+          <div class="subtasks-input" style="display: flex; justify-content: center; width:50%;">
+            <input type="text" id="input-subtask"
+                placeholder="Add a subtask" style="width: 90%;"/>
+                <ul id="subtasks"></ul>
+          </div>
+        </div>
+
+          <button class="addbutton" onclick="add_todo()" style="height: 20px; margin-left: 0px; margin-top: 10px;"><b>Add</b></button>
+        </div>
+        <div class="alert_container">
+          <div class="due_list_container">
+            <h3>Due today </h3>
+            <ul class="due_list">
+
+            </ul>
+          </div>
+          <div class="expired_list_container">
+            <h3>Expired </h3>
+            <ul class="expired_list">
+            </ul>
+          </div>
+        </div>
+
+        <div class="search_bar">
+          <h3>Search Task</h3>
+          <input type="text" class="pattern_input" placeholder="Enter the task">
+          <button class="search_button"><b>Search</b></button>
+          <ul class="search_list"></ul>
+        </div>
+      </div>
+  </div>
     <div class="list_container">
       <br>
-      <button class="show">Show Todos</button>
-      <button class="hide">Hide Todos</button>
-      <h3 class="pending_total"></h3>
-      <ul class="tasklist" style="list-style: decimal;"></ul>
+      <button class="show">Show All Todos</button>
+      <button class="hide backlog_button">View Backlogs</button>
     </div>
-  </div>
+    <div class="pending_total">
+
+        <ul class="tasklist" style="list-style: decimal; width: 55%;"></ul>
+
+      <div class="logger">
+        <div style="display: flex;"><h3 style="display: inline-block; margin: auto; padding-top: 15px;">Activity Log</h3></div>
+        <ul class="log_list"></ul>
+      </div>
+    </div>
+    </div>
+
   <script src="./script.js"></script>
 </body>
 </html>
